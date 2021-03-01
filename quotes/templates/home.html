@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% if ticker %}
+    {{ ticker }}
+{% endif %}  
+    
+ {% if api %}
+     {% if api == "Error..." %}
+        There was a problem with your ticker
+        symbol,Please try again.
+     {% else %}
+       
+       <h1>{{ api.companyName}} </h1><br/>
+       last price :{{ api.close}}<br/>
+       Name of Exchange:{{ api.primaryExchange}}<br/>
+       open :{{ api.open}}<br/>
+       Close :{{ api.close}}<br/>
+       Market Capitalization :{{ api.marketCap}}<br/>
+       PERatio :{{ api.peRatio}}<br/>
+       52WeekHigh :{{ api.week52High}}<br/>
+
+  {% endif %}
+{% endif %}
+{% endblock content %}
